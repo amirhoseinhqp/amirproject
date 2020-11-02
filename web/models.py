@@ -3,6 +3,9 @@ from django.db import models
 from django.conf import settings
 
 # Create your models here.
+class token(models.Model):
+    user = models.OneToOneField(settings.AUTH_USER_MODEL, on_delete=models.CASCADE)
+    token = models.CharField(max_length=48)
 
 class expense(models.Model):
     text = models.CharField(max_length=255)
