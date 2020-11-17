@@ -39,6 +39,7 @@ INSTALLED_APPS = [
     'django.contrib.messages',
     'django.contrib.staticfiles',
     'web',
+    'captcha',
    
 ]
 
@@ -121,3 +122,9 @@ USE_TZ = True
 # https://docs.djangoproject.com/en/2.2/howto/static-files/
 
 STATIC_URL = '/static/'
+
+
+RECAPTCHA_PUBLIC_KEY = '' #The Site key from Google recaptcha
+RECAPTCHA_PRIVATE_KEY = '6Ld1BuEZAAAAANPJI25fZZyKanZ2nM3ZEXamDC9O'#The Secret key here from Google recaptcha
+POSTMARK_API_TOKEN='085bb17e-a097-4820-b3b8-ebded923ea48' 
+
