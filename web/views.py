@@ -62,7 +62,7 @@ def register(request):
             temporarycode = Passwordresetcodes(email=email , time=now , code= code , username=username )
             temporarycode.save()
           
-            message = PMMail(subject= "فعال سازي اکانت امير",sender ="amirhaghparast412@gmail.com" , to = email , text_body="برای فعال کردن اکانت خود روی لینک زیر کلیک کنید:http://http://127.0.0.1:8000/accounts/register/?email={}&code={}".format(email,code),tag = "account request")
+            message = PMMail(subject= "فعال سازي اکانت امير",sender ="amirhaghparast412@gmail.com" , to = email , text_body="برای فعال کردن اکانت خود روی لینک زیر کلیک کنید:{}?email={}&code={}".format( request.build_absolute_uri('/accounts/register/'),email,code),tag = "account request")
             message.send()
            
             
@@ -89,6 +89,9 @@ def register(request):
     else:
         context = {'message':''}
         return render(request,'register.html',context)
+def index(request):
+    context= {}
+    return render(request,'index.html' , context) 
            
 @csrf_exempt
 def submit_income(request):
