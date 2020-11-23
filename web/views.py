@@ -67,7 +67,7 @@ def register(request):
            
             
             context = {'message':'ايميل ارسال شد'}
-            return render(request,'login.html',context)
+            return render(request,'index.html',context)
         else:
             context = {'message':'این نام کاربری استفاده شده'}
             return render(request,'register.html',context)
@@ -81,11 +81,11 @@ def register(request):
             token = token.objects.create(user=newuser, token=this_token)
             Passwordresetcodes.objects.filter(code=code).delete()
             context = {'message':'اکانت شما فعال شد. توکن شما {} است.'.format(this_token)}
-            return render(request,'login.html',context)
+            return render(request,'index.html',context)
 
         else:
             context= {'message':'این کد فعال سازی معتبر نیست'}
-            return render(request,'login.html',context)
+            return render(request,'register.html',context)
     else:
         context = {'message':''}
         return render(request,'register.html',context)

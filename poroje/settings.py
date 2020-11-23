@@ -26,7 +26,7 @@ SECRET_KEY = 'ikt!gaodc)nh4sc4&e5c4b$=_88=dr!(@9+@_7#mxmvxbh)4q9'
 # SECURITY WARNING: don't run with debug turned on in production!
 DEBUG = True
 
-ALLOWED_HOSTS = []
+ALLOWED_HOSTS = ['127.0.0.1:8000','localhost','127.0.0.1']
 
 
 # Application definition
@@ -81,6 +81,10 @@ DATABASES = {
     'default': {
         'ENGINE': 'django.db.backends.sqlite3',
         'NAME': os.path.join(BASE_DIR, 'db.sqlite3'),
+        'USER':'amir',
+        'PASSWORD':'haghparasti79',
+        'HOST':'localhost',
+        'PORT':'',
     }
 }
 
@@ -122,6 +126,7 @@ USE_TZ = True
 # https://docs.djangoproject.com/en/2.2/howto/static-files/
 
 STATIC_URL = '/static/'
+STATIC_ROOT = os.path.join(BASE_DIR, 'static/')
 
 
 RECAPTCHA_PUBLIC_KEY = '' #The Site key from Google recaptcha
